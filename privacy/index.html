@@ -45,7 +45,7 @@
 <ul>
   <li>We collect what the app needs to run: an account, your podcast library and listening positions, the episodes you ask us to analyze, and reports about crashes.</li>
   <li>We do not sell your data, we do not use it for advertising, and there is no advertising identifier or analytics SDK in the app at all.</li>
-  <li>You can delete your account from inside the app, and what survives that deletion is listed below rather than glossed over.</li>
+  <li>You can delete your account from inside the app. What that removes, and what survives it, is listed below.</li>
   <li>We never record audio, and nothing in the app ever asks you for microphone access.</li>
 </ul>
 
@@ -60,7 +60,7 @@
 <h3>Episodes you ask us to analyze</h3>
 <p>When you request an analysis, the app uploads that episode's audio file together with its title, the show's title, its duration and its file size. The audio is a podcast episode published by someone else, downloaded from a public feed. We use it to produce a transcript and to find the segments the app can skip.</p>
 
-<p>We never record from your microphone, and no screen in the app ever asks you for microphone access. One honest detail rather than a flat claim: the Android build still declares the microphone permission, because the audio library the player is built on declares it, and the app never uses it. The iPhone build declares no microphone permission at all.</p>
+<p>We never record from your microphone, and no screen in the app ever asks you for microphone access. The Android build still declares the microphone permission: the app's own Android configuration requests it, alongside a recording service the audio library declares, and the app never records anything. The iPhone build declares no microphone permission at all.</p>
 
 <h3>Subscriptions and purchases</h3>
 <p>When you subscribe, the app sends us the receipt the store gave it: a signed transaction from Apple, or a purchase token from Google Play. We use it to confirm the subscription with that store and to grant access. Payment is handled entirely by Apple or Google. We never see your card, your billing address, or your store account.</p>
@@ -83,7 +83,7 @@
 <h2>What stays on your device</h2>
 <p>Downloaded episode audio stays on your device and is never sent back to us, apart from the one upload described above when you request an analysis. Local bookkeeping about downloads and analyses in progress stays on the device.</p>
 
-<p>Your sign-in tokens are held in the platform's own protected storage: on Android they are encrypted with a key held in the Android Keystore, and on iPhone they are held in the iOS Keychain. One exception we would rather state than hide: on iPhone, a stored session larger than the Keychain item we write is kept in the app's own private storage instead, which other apps cannot read but which is not itself encrypted. We are closing that gap.</p>
+<p>Your sign-in tokens sit in the platform's protected storage where they fit. On Android, builds that carry our own session vault encrypt them with a key held in the Android Keystore. A real session is larger than the 2048-byte item the platform keychain will accept, so on iPhone, and on Android builds without that vault, the session is kept in the app's own private storage, which other apps cannot read but which is not itself encrypted. We are closing that gap.</p>
 
 <h2>Who else receives your data</h2>
 <p>We share the minimum each provider needs to do its job, and we do not sell your data to anyone. Each provider processes it for us under its own agreement with us, to deliver the service and not for its own advertising.</p>
@@ -144,7 +144,10 @@
 <p><a href="mailto:support@stfuai.com">support@stfuai.com</a></p>
 
 <h2>Change note, 11 September 2026</h2>
-<p>The first version of this page, published earlier the same day, was checked line by line against the app's source and the backend's. Six statements were corrected rather than left to stand: it said the app asks for no microphone permission, when the Android build declares one it never uses; it said the analysis upload includes a hash of the audio, which the app has not sent since January 2026; it said the transcription providers receive no account identifier, when the download link's path contains it; it said sign-in tokens are always in the Keychain on iPhone, which is not true of a session too large for the item we write; and it did not mention shared playback links, our own audit log of analysis actions, or the store notification records that survive an account deletion. All of those are described above now.</p>
+<p>The first version of this page, published earlier the same day, was checked line by line against the app's source and the backend's. The statements that did not survive that check are listed here: it said the app asks for no microphone permission, when the Android build declares one it never uses; it said the analysis upload includes a hash of the audio, which the app has not sent since January 2026; it said the transcription providers receive no account identifier, when the download link's path contains it; it said sign-in tokens are always in the Keychain on iPhone, when a real session never fits the item the keychain accepts and lands in the app's own private storage instead; and it did not mention shared playback links, our own audit log of analysis actions, or the store notification records that survive an account deletion. All of those are described above now.</p>
+
+<h2>Change note, 12 September 2026</h2>
+<p>A second review, this one reading the app's session storage code rather than its configuration, corrected two more statements. Where this page had described app-private storage on iPhone as an exception for an oversized session, it is the normal case: every real session exceeds the 2048-byte item the platform keychain accepts, and the Android Keystore path applies only to builds carrying our own session vault. And the microphone paragraph blamed the audio library for a permission the app's own Android configuration requests. Both paragraphs above now say what the code does.</p>
 
 <footer>
 STFUAI Podcasts &middot; <a href="../terms/">Terms of Use</a> &middot; <a href="https://stfuai.com">stfuai.com</a>
