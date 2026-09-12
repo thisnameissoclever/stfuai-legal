@@ -35,7 +35,7 @@
 <body>
 
 <h1>Privacy Policy</h1>
-<p class="date">STFUAI Podcasts. Effective 11 September 2026. Corrected the same day, after a review checked every claim in it against the code: see the change note at the end.</p>
+<p class="date">STFUAI Podcasts. Effective 11 September 2026. Corrected on 11 and 12 September 2026, after reviews checked every claim in it against the code: see the change notes at the end.</p>
 
 <p>This policy covers the STFUAI Podcasts mobile app for iPhone and Android, and the servers the app talks to. It is written to describe what the software actually does, and it was checked against the source code rather than written from intention.</p>
 
@@ -83,7 +83,7 @@
 <h2>What stays on your device</h2>
 <p>Downloaded episode audio stays on your device and is never sent back to us, apart from the one upload described above when you request an analysis. Local bookkeeping about downloads and analyses in progress stays on the device.</p>
 
-<p>Your sign-in tokens sit in the platform's protected storage where they fit. On Android, builds that carry our own session vault encrypt them with a key held in the Android Keystore. A real session is larger than the 2048-byte item the platform keychain will accept, so on iPhone, and on Android builds without that vault, the session is kept in the app's own private storage, which other apps cannot read but which is not itself encrypted. We are closing that gap.</p>
+<p>Your sign-in tokens sit in the platform's protected storage where they fit. On Android, builds that carry our own session vault encrypt them with a key held in the Android Keystore. A real session is larger than the 2048-byte value our secure-storage layer will hold, so on iPhone, and on Android builds without that vault, the session is kept in the app's own private storage, which other apps cannot read but which is not itself encrypted. We are closing that gap.</p>
 
 <h2>Who else receives your data</h2>
 <p>We share the minimum each provider needs to do its job, and we do not sell your data to anyone. Each provider processes it for us under its own agreement with us, to deliver the service and not for its own advertising.</p>
@@ -144,10 +144,10 @@
 <p><a href="mailto:support@stfuai.com">support@stfuai.com</a></p>
 
 <h2>Change note, 11 September 2026</h2>
-<p>The first version of this page, published earlier the same day, was checked line by line against the app's source and the backend's. The statements that did not survive that check are listed here: it said the app asks for no microphone permission, when the Android build declares one it never uses; it said the analysis upload includes a hash of the audio, which the app has not sent since January 2026; it said the transcription providers receive no account identifier, when the download link's path contains it; it said sign-in tokens are always in the Keychain on iPhone, when a real session never fits the item the keychain accepts and lands in the app's own private storage instead; and it did not mention shared playback links, our own audit log of analysis actions, or the store notification records that survive an account deletion. All of those are described above now.</p>
+<p>The first version of this page, published earlier the same day, was checked line by line against the app's source and the backend's. The statements that did not survive that check are listed here: it said the app asks for no microphone permission, when the Android build declares one it never uses; it said the analysis upload includes a hash of the audio, which the app has not sent since January 2026; it said the transcription providers receive no account identifier, when the download link's path contains it; it said sign-in tokens are always in the Keychain on iPhone, when a real session never fits the value our secure-storage layer holds and lands in the app's own private storage instead; and it did not mention shared playback links, our own audit log of analysis actions, or the store notification records that survive an account deletion. All of those are described above now.</p>
 
 <h2>Change note, 12 September 2026</h2>
-<p>A second review, this one reading the app's session storage code rather than its configuration, corrected two more statements. Where this page had described app-private storage on iPhone as an exception for an oversized session, it is the normal case: every real session exceeds the 2048-byte item the platform keychain accepts, and the Android Keystore path applies only to builds carrying our own session vault. And the microphone paragraph blamed the audio library for a permission the app's own Android configuration requests. Both paragraphs above now say what the code does.</p>
+<p>A second review, this one reading the app's session storage code rather than its configuration, corrected two more statements. Where this page had described app-private storage on iPhone as an exception for an oversized session, it is the normal case: every real session exceeds the 2048-byte value our secure-storage layer holds, and the Android Keystore path applies only to builds carrying our own session vault. And the microphone paragraph blamed the audio library for a permission the app's own Android configuration requests. Both paragraphs above now say what the code does.</p>
 
 <footer>
 STFUAI Podcasts &middot; <a href="../terms/">Terms of Use</a> &middot; <a href="https://stfuai.com">stfuai.com</a>
