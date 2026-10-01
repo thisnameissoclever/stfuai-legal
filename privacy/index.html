@@ -34,124 +34,23 @@
 </head>
 <body>
 
-<h1>Privacy Policy</h1>
-<p class="date">STFUAI Podcasts. Effective 11 September 2026. Corrected on 11 and 12 September 2026, after reviews checked every claim in it against the code: see the change notes at the end.</p>
+<h1 class="page-heading">Privacy</h1>
 
-<p>This policy covers the STFUAI Podcasts mobile app for iPhone and Android, and the servers the app talks to. It is written to describe what the software actually does, and it was checked against the source code rather than written from intention.</p>
+<p>We collect account details, podcast subscriptions, listening positions, settings, and diagnostic reports to run the app, sync your devices, and fix problems. Diagnostic reports can include your account identifier and IP address. We never record your microphone or receive passwords from other services you use to sign in.</p>
 
-<p>STFUAI Podcasts is operated by Tim Woodruff. For anything in this policy, write to <a href="mailto:support@stfuai.com">support@stfuai.com</a>.</p>
+<p>We use service providers to store app data, analyze episodes, process payments, and measure website visits and sign-ups. Episode processing can include your account identifier. We never receive your payment details. Optional account connections share information only when you link them.</p>
 
-<h2>The short version</h2>
-<ul>
-  <li>We collect what the app needs to run: an account, your podcast library and listening positions, the episodes you ask us to analyze, and reports about crashes.</li>
-  <li>We do not sell your data, we do not use it for advertising, and there is no advertising identifier or analytics SDK in the app at all.</li>
-  <li>You can delete your account from inside the app. What that removes, and what survives it, is listed below.</li>
-  <li>We never record audio, and nothing in the app ever asks you for microphone access.</li>
-</ul>
+<p>We use sign-up reports only to learn how people discover our app. We don&#39;t use any of this information to advertise or market to you. We do not sell this information to anyone.</p>
 
-<h2>What we collect, and why</h2>
+<p>You can use the player without episode analysis, unlink connected accounts, or permanently delete your account in Settings. Deletion removes your account, library, settings, uploaded audio, shared links, and subscription access records, and cancels pending analysis.</p>
 
-<h3>Your account</h3>
-<p>An email address and an account identifier. If you sign in with Apple, we receive the identity token Apple issues and whatever name and email address you choose to share through it; your display name is taken from that, or from the part of your email address before the @ if Apple withholds the name. If you sign in with Google, we receive the identity token Google issues and the email address and profile name it carries. We never receive your Apple or Google password.</p>
+<p>Completed transcripts, detected segments, and diagnostic and billing records remain with your account identifier removed. Logs may retain IP addresses; billing records retain store transaction identifiers. Word-level transcript timing is deleted after 60 days.</p>
 
-<h3>Your podcast library and listening activity</h3>
-<p>The shows you subscribe to, your queue, your playback position and speed per episode, which episodes you have finished, your app settings, and your per-show settings. Also a device identifier, which is a random string the app generates for itself so that two of your devices can sync without overwriting each other. It is not a hardware identifier and not an advertising identifier.</p>
+<p>Deleting your account does not cancel a paid subscription. Cancel it through the App Store or Google Play. Deletion also does not automatically delete reports already shared with service providers.</p>
 
-<h3>Episodes you ask us to analyze</h3>
-<p>When you request an analysis, the app uploads that episode's audio file together with its title, the show's title, its duration and its file size. The audio is a podcast episode published by someone else, downloaded from a public feed. We use it to produce a transcript and to find the segments the app can skip.</p>
+<p>The app is not intended for children under 13. We do not knowingly collect their personal information.</p>
 
-<p>We never record from your microphone, and no screen in the app ever asks you for microphone access. The Android build still declares the microphone permission: the app's own Android configuration requests it, alongside a recording service the audio library declares, and the app never records anything. The iPhone build declares no microphone permission at all.</p>
-
-<h3>Subscriptions and purchases</h3>
-<p>When you subscribe, the app sends us the receipt the store gave it: a signed transaction from Apple, or a purchase token from Google Play. We use it to confirm the subscription with that store and to grant access. Payment is handled entirely by Apple or Google. We never see your card, your billing address, or your store account.</p>
-
-<h3>Discord, only if you link it</h3>
-<p>If you link a Discord account, we store your Discord user identifier and username so that a paid role can be granted and later removed. We do not store your Discord password, and we do not keep the access token Discord issues.</p>
-
-<h3>Crash and diagnostic reports</h3>
-<p>When the app crashes, freezes, or fails to start, it sends a report containing the error message, a stack trace, the app version and build, the platform, and measurements about the failure itself: how long a startup took before it failed, how long the interface was unresponsive, how much memory the process was using when the operating system killed it. Some of these reports are sent automatically, without you pressing anything, because a frozen app cannot ask. If you are signed in, the report is linked to your account so we can answer you about it. If you are not, it is stored with no account attached.</p>
-
-<h3>Shared playback links</h3>
-<p>If you share an episode at a moment, we store what the link needs to open: who created it, the feed address, the episode identifier, the episode and show titles, the audio address, and the skip markers as they stood. A link is only created when you share one.</p>
-
-<h3>Every request, and our own audit log</h3>
-<p>Requests to our servers carry the app's version and build number, so that a fault can be attributed to a release. Our servers also keep an audit log of the analysis actions taken on your account, and each entry can carry the IP address and the browser or app identifier the request arrived with, which is what lets us tell abuse from ordinary use.</p>
-
-<h3>What we do not collect</h3>
-<p>No advertising identifier. No tracking of you across other apps or websites. No analytics, attribution or advertising software development kit is a dependency of the app, and none is present in it.</p>
-
-<h2>What stays on your device</h2>
-<p>Downloaded episode audio stays on your device and is never sent back to us, apart from the one upload described above when you request an analysis. Local bookkeeping about downloads and analyses in progress stays on the device.</p>
-
-<p>Your sign-in tokens sit in the platform's protected storage where they fit. On Android, builds that carry our own session vault encrypt them with a key held in the Android Keystore. A real session is larger than the 2048-byte value our secure-storage layer will hold, so on iPhone, and on Android builds without that vault, the session is kept in the app's own private storage, which other apps cannot read but which is not itself encrypted. We are closing that gap.</p>
-
-<h2>Who else receives your data</h2>
-<p>We share the minimum each provider needs to do its job, and we do not sell your data to anyone. Each provider processes it for us under its own agreement with us, to deliver the service and not for its own advertising.</p>
-
-<table>
-  <tr><th>Provider</th><th>What it receives</th></tr>
-  <tr><td>Supabase</td><td>Our hosting, database, authentication and file storage. Everything described above that leaves your device is stored there.</td></tr>
-  <tr><td>Modal Labs</td><td>A temporary download link to one episode's audio, for transcription, and an internal job identifier. The link's path contains your account identifier, because that is how the uploaded file is filed; it carries no email address and no other account data.</td></tr>
-  <tr><td>Replicate, AssemblyAI</td><td>The same, when the first transcription provider is unavailable.</td></tr>
-  <tr><td>OpenRouter</td><td>The transcript text, for the language model that identifies which segments are skippable. It is sent without your email address or your account identifier.</td></tr>
-  <tr><td>Apple, Google</td><td>The transaction identifier from your purchase, so the subscription can be verified with the store that billed you.</td></tr>
-  <tr><td>Discord</td><td>Only if you link it, and only as described above.</td></tr>
-</table>
-
-<h2>How long we keep it, and what deleting your account removes</h2>
-
-<p>Settings has a Delete Account row while you are signed in. Deleting is immediate and it is not reversible.</p>
-
-<h3>Removed</h3>
-<ul>
-  <li>Your login and your account record.</li>
-  <li>Your subscriptions, queue, playback positions, finished episodes, app settings and per-show settings.</li>
-  <li>The episode audio you uploaded for analysis.</li>
-  <li>Your Discord link.</li>
-  <li>Your entitlement records, and any analysis still in progress.</li>
-  <li>Any playback links you shared.</li>
-</ul>
-
-<h3>Kept, with your identity removed</h3>
-<ul>
-  <li><strong>Transcripts and detected segments</strong> for episodes that finished processing, with your account identifier and the upload path deleted from them. They describe a podcast episode that was published to the public, not you; keeping them means the next person to analyze the same episode does not pay to transcribe it again.</li>
-  <li><strong>Crash reports</strong>, with your account identifier deleted from them, so that a fault signature survives without an owner.</li>
-  <li><strong>The audit log of analysis actions</strong>, with your account identifier deleted from each entry. An entry can still carry the IP address and app identifier the request arrived with.</li>
-  <li><strong>Records of the subscription notifications the stores sent us</strong>, with your account identifier deleted from them. These carry the store's own purchase and order identifiers and the notification as the store sent it, and they are what lets us answer a billing dispute after an account is gone.</li>
-  <li><strong>One record needed to remove your paid Discord role</strong>, which exists only until that removal has been carried out.</li>
-</ul>
-
-<p>Verbatim word-by-word timing data from transcription is deleted after sixty days, whether or not you delete your account.</p>
-
-<p><strong>Deleting your account does not cancel a paid subscription.</strong> Apple and Google own that billing relationship, and only they can end it. Cancel in the App Store or Google Play subscription settings, or the store keeps charging you after your account is gone.</p>
-
-<h2>Children</h2>
-<p>The app is not directed at children and we do not knowingly collect information from a child under 13. We do not ask for your age. The app plays podcasts published by other people, whose content we do not control or review, which is why its App Store age rating declares that it can contain occasional profanity.</p>
-
-<h2>Your choices</h2>
-<ul>
-  <li>Sign out, on any device, at any time.</li>
-  <li>Delete your account from Settings, which is described in full above.</li>
-  <li>Unlink Discord without deleting anything else.</li>
-  <li>Never request an analysis. Downloading, playing, queueing and syncing all work without one.</li>
-  <li>Write to <a href="mailto:support@stfuai.com">support@stfuai.com</a> to ask what we hold about you, or to ask for a copy of it.</li>
-</ul>
-
-<h2>Changes to this policy</h2>
-<p>If this policy changes, the new version appears here with a new effective date at the top. Where a change materially widens what we collect, we will say so in the app's release notes rather than only here.</p>
-
-<h2>Contact</h2>
-<p><a href="mailto:support@stfuai.com">support@stfuai.com</a></p>
-
-<h2>Change note, 11 September 2026</h2>
-<p>The first version of this page, published earlier the same day, was checked line by line against the app's source and the backend's. The statements that did not survive that check are listed here: it said the app asks for no microphone permission, when the Android build declares one it never uses; it said the analysis upload includes a hash of the audio, which the app has not sent since January 2026; it said the transcription providers receive no account identifier, when the download link's path contains it; it said sign-in tokens are always in the Keychain on iPhone, when a real session never fits the value our secure-storage layer holds and lands in the app's own private storage instead; and it did not mention shared playback links, our own audit log of analysis actions, or the store notification records that survive an account deletion. All of those are described above now.</p>
-
-<h2>Change note, 12 September 2026</h2>
-<p>A second review, this one reading the app's session storage code rather than its configuration, corrected two more statements. Where this page had described app-private storage on iPhone as an exception for an oversized session, it is the normal case: every real session exceeds the 2048-byte value our secure-storage layer holds, and the Android Keystore path applies only to builds carrying our own session vault. And the microphone paragraph blamed the audio library for a permission the app's own Android configuration requests. Both paragraphs above now say what the code does.</p>
-
-<footer>
-STFUAI Podcasts &middot; <a href="../terms/">Terms of Use</a> &middot; <a href="https://stfuai.com">stfuai.com</a>
-</footer>
+<p>STFUAI Podcasts is operated by Tim Woodruff. For questions, data copies, or deletion requests, email <a href="mailto:support@stfuai.com">support@stfuai.com</a>.</p>
 
 </body>
 </html>
